@@ -4,18 +4,18 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prepare": "husky init",
+    "prepare": "husky",
     "postinstall": "husky init"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
     "alpinejs": "^3.4.2",
-    "autoprefixer": "^10.4.2",
+    "autoprefixer": "^10.4.20",
     "axios": "^1.6.4",
     "husky": "^9.1.1",
     "laravel-vite-plugin": "^1.0",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.1.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
     "vite": "^5.0"
   }
 }
