@@ -38,7 +38,13 @@
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 space-x-4">
                             <a href="{{ route('solicitacoes.show', $solicitacao->id) }}" class="text-indigo-600 hover:text-indigo-900">Detalhes</a>
                             <a href="{{ route('solicitacoes.dashboard', $solicitacao->id) }}" class="text-indigo-600 hover:text-indigo-900">Dashboard</a>
+                            <form action="{{ route('solicitacoes.destroy', $solicitacao->id) }}" method="POST" style="display:inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir esta solicitação?')" class="text-red-600 hover:text-red-900">Excluir</button>
+                            </form>
                         </td>
+
                     </tr>
                 @empty
                     <tr>

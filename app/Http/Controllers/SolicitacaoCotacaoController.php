@@ -224,5 +224,11 @@ class SolicitacaoCotacaoController extends Controller
             ->with('success', 'Novos fornecedores adicionados com sucesso!');
     }
 
+    public function destroy($id)
+    {
+        $solicitacao = SolicitacaoCotacao::findOrFail($id);
+        $solicitacao->delete();
 
+        return redirect()->route('solicitacoes.index')->with('success', 'Solicitação deletada com sucesso.');
+    }
 }
