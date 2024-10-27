@@ -10,7 +10,9 @@ class CreateSolicitacaoCotacaoFornecedorTable extends Migration
     {
         Schema::create('solicitacao_cotacao_fornecedor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('solicitacao_cotacao_id')->constrained()->onDelete('cascade');
+            $table->foreignId('solicitacao_cotacao_id')
+                ->constrained('solicitacao_cotacoes') // Nome correto da tabela
+                ->onDelete('cascade');
             $table->foreignId('fornecedor_id')->constrained('fornecedores')->onDelete('cascade');
             $table->timestamps();
         });

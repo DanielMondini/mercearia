@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,11 +12,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('access_links', function (Blueprint $table) {
+        Schema::create('cotacoes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('solicitacao_cotacao_id')->constrained()->onDelete('cascade');
+            $table->foreignId('solicitacao_cotacao_id')
+                ->constrained('solicitacao_cotacoes') // Nome correto da tabela
+                ->onDelete('cascade');
             $table->foreignId('fornecedor_id')->constrained('fornecedores')->onDelete('cascade');
-            $table->string('token')->unique();
+            $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
+            $table->decimal('preco', 10, 2);
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('access_links');
+        Schema::dropIfExists('cotacaos');
     }
 };

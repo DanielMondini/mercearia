@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SolicitacaoCotacao extends Model
 {
+
+    protected $table = 'solicitacao_cotacoes';
     protected $fillable = [
         'nome',
         'descricao',
